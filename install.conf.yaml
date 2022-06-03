@@ -6,8 +6,11 @@
 
 - link:
     ~/.zshrc: zshrc
+    ~/.zsh_aliases: zsh_aliases
     ~/.zsh_plugins.txt: zsh_plugins
     ~/.vimrc: vimrc
+    ~/.logo: logo
+    ~/.config/kitty: kitty
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
