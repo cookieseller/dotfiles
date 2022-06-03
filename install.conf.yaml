@@ -11,6 +11,9 @@
     ~/.vimrc: vimrc
     ~/.logo: logo
     ~/.config/kitty: kitty
+    ~/.config/neofetch/config.conf:
+        path: neofetch.conf
+        force: true
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

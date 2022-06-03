@@ -1,5 +1,3 @@
-cat .logo
-
 # clone antidote if necessary
 [[ -e ~/.antidote ]] || git clone https://github.com/mattmc3/antidote.git ~/.antidote
 
@@ -15,3 +13,5 @@ antidote load
 ZSH_THEME=robbyrussell
 
 source .zsh_aliases
+
+neofetch --ascii .logo --ascii_colors 15 5 6
