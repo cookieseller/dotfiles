@@ -1,0 +1,42 @@
+set nocompatible
+set encoding=UTF-8
+
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+let &t_ut='' " disable Background Color Erase (BCE) so that color schemes render properly when inside 256-color tmux and GNU screen.
+
+filetype off
+
+map gf :edit <cfile><cr>
+
+filetype plugin indent on
+
+set scrolloff=8
+set sidescrolloff=8
+set termguicolors
+set expandtab " tabs are spaces now
+set shiftwidth=4 " auto ident with 4 spaces
+set tabstop=4 " one tab is 4 spaces
+set ignorecase
+set smartcase
+
+nnoremap <SPACE> <Nop>
+let mapleader = "\<space>"
+
+call plug#begin(data_dir . '/plugins')
+
+source ~/.config/vim/plugins/airline.vim
+source ~/.config/vim/plugins/dracula.vim 
+source ~/.config/vim/plugins/nerdtree.vim 
+source ~/.config/vim/plugins/fzf.vim 
+source ~/.config/vim/plugins/coc.vim 
+
+call plug#end()
+doautocmd User InstallComplete
+
+
+source ~/.config/vim/keybindings.vim

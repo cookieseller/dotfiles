@@ -1,5 +1,7 @@
 #!/bin/bash
 
 brew install neofetch
+brew install ripgrep
+brew install node
 brew install fzf
-/usr/local/opt/fzf/install
+yes y | /usr/local/opt/fzf/install

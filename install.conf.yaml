@@ -8,9 +8,13 @@
     ~/.zshrc: zshrc
     ~/.zsh_aliases: zsh_aliases
     ~/.zsh_plugins.txt: zsh_plugins
-    ~/.vimrc: vimrc
+    ~/.vimrc: vim/vimrc
+    ~/.config/nvim/init.vim: 
+        path: vim/init.vim
+        create: true
     ~/.logo: logo
     ~/.config/kitty: kitty
+    ~/.config/vim: vim
     ~/.config/neofetch/config.conf:
         path: neofetch.conf
         force: true
