@@ -23,20 +23,32 @@ set shiftwidth=4 " auto ident with 4 spaces
 set tabstop=4 " one tab is 4 spaces
 set ignorecase
 set smartcase
+set clipboard=unnamedplus
 
 nnoremap <SPACE> <Nop>
 let mapleader = "\<space>"
 
+
 call plug#begin(data_dir . '/plugins')
+
+if has("nvim")
+    source ~/.config/vim/plugins/nvim-tree.vim
+    source ~/.config/vim/plugins/nvim-cmp.vim
+else
+    source ~/.config/vim/plugins/nerdtree.vim 
+endif
 
 source ~/.config/vim/plugins/airline.vim
 source ~/.config/vim/plugins/dracula.vim 
-source ~/.config/vim/plugins/nerdtree.vim 
 source ~/.config/vim/plugins/fzf.vim 
 source ~/.config/vim/plugins/coc.vim 
 
 call plug#end()
 doautocmd User InstallComplete
 
+" maybe this could be executed to early if plugins are installed for the first
+" time
+lua require('cmp-config')
+lua require('nvim-tree-config')
 
 source ~/.config/vim/keybindings.vim

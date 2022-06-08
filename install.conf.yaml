@@ -9,6 +9,9 @@
     ~/.zsh_aliases: zsh_aliases
     ~/.zsh_plugins.txt: zsh_plugins
     ~/.vimrc: vim/vimrc
+    ~/.config/nvim/lua: 
+        path: vim/lua
+        create: true
     ~/.config/nvim/init.vim: 
         path: vim/init.vim
         create: true
