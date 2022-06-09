@@ -13,11 +13,11 @@ function M.setup(servers, options)
       end)
 
       if not server:is_installed() then
-        vim.notify(msg, vim.log.levels.INFO, { title = "Installing" .. server.name })
+ --       vim.notify(msg, vim.log.levels.INFO, { title = "Installing" .. server.name })
         server:install()
       end
     else
-      vim.notify(msg, vim.log.levels.ERROR, { title = server })
+   --   vim.notify(msg, vim.log.levels.ERROR, { title = server })
     end
   end
 end
