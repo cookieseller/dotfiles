@@ -35,7 +35,7 @@ packer.startup(function(use)
     event = "BufReadPre",
     wants = { "nvim-lsp-installer" },
     config = function()
-      require("user.plugins.lspconfig")
+      require("user.plugins.lsp").setup()
     end,
     requires = {
       "williamboman/nvim-lsp-installer",
@@ -65,5 +65,6 @@ packer.startup(function(use)
       require('user.plugins.floaterm')
     end
   }
+  use { 'rcarriga/nvim-notify' }
 end)
 
