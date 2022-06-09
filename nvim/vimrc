@@ -33,6 +33,7 @@ call plug#begin(data_dir . '/plugins')
 
 if has("nvim")
     source ~/.config/vim/plugins/nvim-tree.vim
+    source ~/.config/vim/plugins/lsp.vim
     source ~/.config/vim/plugins/nvim-cmp.vim
 else
     source ~/.config/vim/plugins/nerdtree.vim 
@@ -50,5 +51,6 @@ doautocmd User InstallComplete
 " time
 lua require('cmp-config')
 lua require('nvim-tree-config')
+lua require('lsp')
 
 source ~/.config/vim/keybindings.vim

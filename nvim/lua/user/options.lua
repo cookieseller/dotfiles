@@ -1,0 +1,9 @@
+vim.o.clipboard = 'unnamedplus' -- Use Linux system clipboard
+vim.o.scrolloff=8
+vim.o.sidescrolloff=8
+vim.o.termguicolors=true
+vim.o.expandtab=true --tabs are spaces now
+vim.o.shiftwidth=4 --auto ident with 4 spaces
+vim.o.tabstop=4 --one tab is 4 spaces
+vim.o.ignorecase=true
+vim.o.smartcase=true

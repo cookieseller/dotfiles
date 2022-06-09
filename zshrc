@@ -4,9 +4,6 @@
 # source antidote
 . ~/.antidote/antidote.zsh
 
-bindkey "^[[A" history-beginning-search-backward
-bindkey "^[[B" history-beginning-search-forward
-
 # generate and source plugins from ~/.zsh_plugins.txt
 antidote load
 
