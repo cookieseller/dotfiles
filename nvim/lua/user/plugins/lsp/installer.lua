@@ -1,5 +1,4 @@
 local lsp_installer_servers = require "nvim-lsp-installer.servers"
-
 local M = {}
 
 function M.setup(servers, options)

@@ -8,23 +8,12 @@
     ~/.zshrc: zshrc
     ~/.zsh_aliases: zsh_aliases
     ~/.zsh_plugins.txt: zsh_plugins
-      #    ~/.vimrc: vim/vimrc
-      #    ~/.config/nvim/lua: 
-      #        path: vim/lua
-      #        create: true
-      #    ~/.config/nvim/init.lua:
-      #      path: vim/init.lua
-      #      create: true
     ~/.config/nvim:
       path: nvim
       create: true
       force: true
-          #    ~/.config/nvim/init.vim: 
-          #        path: vim/init.vim
-          #        create: true
     ~/.logo: logo
     ~/.config/kitty: kitty
-      #    ~/.config/vim: vim
     ~/.config/neofetch/config.conf:
         path: neofetch.conf
         force: true

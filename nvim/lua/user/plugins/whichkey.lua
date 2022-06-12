@@ -23,12 +23,6 @@ function M.setup()
     ["w"] = { "<cmd>update!<CR>", "Save" },
     ["q"] = { "<cmd>q!<CR>", "Quit" },
 
-    b = {
-      name = "Buffer",
-      c = { "<Cmd>bd!<Cr>", "Close current buffer" },
-      D = { "<Cmd>%bd|e#|bd#<Cr>", "Delete all buffers" },
-    },
-
     z = {
       name = "Packer",
       c = { "<cmd>PackerCompile<cr>", "Compile" },

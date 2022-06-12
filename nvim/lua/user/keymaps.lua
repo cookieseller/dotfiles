@@ -8,3 +8,6 @@ keymap('', 'gf', ':edit <cfile><CR>')
 
 keymap('v', '<', '<gv')
 keymap('v', '>', '>gv')
+
+keymap('n', '<C-e>', '$a')
+keymap('n', '<C-a>', '0i')

@@ -1,10 +1,4 @@
-vim.g.nvim_tree_indent_markers = 1
--- vim.g.nvim_tree_git_hl = 1
-vim.g.nvim_tree_highlight_opened_files = 1
---vim.g.nvim_tree_group_empty = 1
-
 require('nvim-tree').setup {
-  update_cwd = true,
   git = {
     ignore = false,
   },
@@ -12,9 +6,24 @@ require('nvim-tree').setup {
     prefix = "[FILTER]: ",
     always_show_folders = false,
   },
-  highlight_focused_file = true,
+  renderer = {
+    highlight_opened_files = "all",
+    icons = {
+      webdev_colors = true,
+      padding = " ",
+      symlink_arrow = " ➛ ",
+      show = {
+        file = true,
+        folder = true,
+        folder_arrow = true,
+        git = true,
+      },
+    }
+  },
   update_focused_file = {
     enable = true,
+    update_cwd = true,
+    ignore_list = {},
   },
   view = {
     adaptive_size = false,

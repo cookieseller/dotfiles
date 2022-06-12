@@ -23,6 +23,11 @@ packer.startup(function(use)
       require('user.plugins.file-tree')
     end
   }
+  -- to change the root directory in nvim-tree
+  use {
+    'notjedi/nvim-rooter.lua',
+     config = function() require'nvim-rooter'.setup() end
+  }
   use {
     'vim-test/vim-test',
     config = function()

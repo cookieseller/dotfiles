@@ -9,4 +9,9 @@ M.keymap = function(mode, lhs, rhs, opts)
   )
 end
 
+M.del_keymap = function(mode, lhs)
+  vim.api.nvim_del_keymap(mode, lhs)
+end
+
+
 return M
