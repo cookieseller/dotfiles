@@ -1,7 +1,7 @@
 local keymap = require 'lib.utils'.keymap
 
-keymap('n', '<leader>c', ':FloatermToggle scratch<CR>')
-keymap('t', '<leader>c', '<C-\\><C-n>:FloatermToggle scratch<CR>')
+keymap('n', '<leader>t', ':FloatermToggle scratch<CR>')
+keymap('t', '<leader>t', '<C-\\><C-n>:FloatermToggle scratch<CR>')
 
 vim.g.floaterm_gitcommit='floaterm'
 vim.g.floaterm_autoinsert=1
