@@ -45,6 +45,12 @@ telescope.setup {
     },
     buffers = {
       previewer = false,
+      sort_lastused = true,
+      mappings = {
+        i = {
+          ["<c-d>"] = "delete_buffer",
+        }
+      },
       layout_config = {
         width = 80,
       },

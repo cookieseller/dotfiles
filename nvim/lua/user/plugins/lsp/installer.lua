@@ -1,7 +1,9 @@
 local lsp_installer_servers = require "nvim-lsp-installer.servers"
+local utils = require "lib.utils"
 local M = {}
 
 function M.setup(servers, options)
+  print("Hello im called")
   for server_name, _ in pairs(servers) do
     local server_available, server = lsp_installer_servers.get_server(server_name)
 
@@ -12,11 +14,11 @@ function M.setup(servers, options)
       end)
 
       if not server:is_installed() then
- --       vim.notify(msg, vim.log.levels.INFO, { title = "Installing" .. server.name })
+        utils.info("Installing " .. server.name)
         server:install()
       end
     else
-   --   vim.notify(msg, vim.log.levels.ERROR, { title = server })
+        utils.error(server)
     end
   end
 end

@@ -11,6 +11,7 @@ local servers = {
   vimls = {},
 }
 
+print("Hello im called")
 local function on_attach(client, bufnr)
   -- Enable completion triggered by <C-X><C-O>
   -- See `:help omnifunc` and `:help ins-completion` for more information.
