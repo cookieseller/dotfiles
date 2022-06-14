@@ -35,16 +35,25 @@ packer.startup(function(use)
     end
   }
   use {
-    "neovim/nvim-lspconfig",
-    opt = true,
-    event = "BufReadPre",
-    wants = { "nvim-lsp-installer" },
-    config = function()
-      require("user.plugins.lsp").setup()
-    end,
+    'VonHeikemen/lsp-zero.nvim',
     requires = {
-      "williamboman/nvim-lsp-installer",
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},
+      {'williamboman/nvim-lsp-installer'},
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-path'},
+      {'saadparwaiz1/cmp_luasnip'},
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'hrsh7th/cmp-nvim-lua'},
+      -- Snippets
+      {'L3MON4D3/LuaSnip'},
+      {'rafamadriz/friendly-snippets'},
     },
+    config = function()
+      require("user.plugins.lsp-zero")
+    end
   }
   use {
     "folke/which-key.nvim",
