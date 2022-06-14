@@ -1,4 +1,5 @@
 local lsp = require('lsp-zero')
-print("lsp-zero loaded")
+
+lsp.nvim_workspace()
 lsp.preset('recommended')
 lsp.setup()
