@@ -74,8 +74,12 @@ telescope.setup {
 }
 
 require('telescope').load_extension 'fzf'
+require('telescope').load_extension "project" -- telescope-project.nvim
+require('telescope').load_extension "repo"
+require('telescope').load_extension "file_browser"
+require('telescope').load_extension "projects" -- project.nvim
 
-keymap('n', '<leader>o', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
+keymap('n', '<leader>o', [[<cmd>lua require('telescope.builtin').find_files({prompt_title = 'Find filtered Files' })<CR>]])
 keymap('n', '<leader>O', [[<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files' })<CR>]]) -- luacheck: no max line length
 -- keymap('n', '<leader>r', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]])
 keymap('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])

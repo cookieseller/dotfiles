@@ -40,7 +40,7 @@ else
 endif
 
 source ~/.config/vim/plugins/airline.vim
-source ~/.config/vim/plugins/dracula.vim 
+" source ~/.config/vim/plugins/dracula.vim 
 source ~/.config/vim/plugins/fzf.vim 
 source ~/.config/vim/plugins/coc.vim 
 

@@ -31,6 +31,13 @@ function M.setup()
       S = { "<cmd>PackerStatus<cr>", "Status" },
       u = { "<cmd>PackerUpdate<cr>", "Update" },
     },
+    b = {
+      name = "Telescope plugins",
+      r = { "<cmd>Telescope file_browser<cr>", "File Browser" },
+      c = { "<cmd>Telescope commands<cr>", "Commands" },
+      p = { "<cmd>lua require'telescope'.extensions.project.project{}<cr>", "Project List" },
+      g = { "<cmd>Telescope repo list<cr>", "Git Repository Search" },
+    },
   }
 
   whichkey.setup(conf)
