@@ -13,9 +13,50 @@ local colors = {
   grey   = '#303030',
 }
 
+
+local function separator()
+  return "%="
+end
+
+local function lsp_client()
+  local buf_clients = vim.lsp.buf_get_clients()
+  if next(buf_clients) == nil then
+    return ""
+  end
+  local buf_client_names = {}
+  for _, client in pairs(buf_clients) do
+    if client.name ~= "null-ls" then
+      table.insert(buf_client_names, client.name)
+    end
+  end
+  return "[" .. table.concat(buf_client_names, ", ") .. "]"
+end
+
+local function lsp_progress(_, is_active)
+  if not is_active then
+    return
+  end
+  local messages = vim.lsp.util.get_progress_messages()
+  if #messages == 0 then
+    return ""
+  end
+  local status = {}
+  for _, msg in pairs(messages) do
+    local title = ""
+    if msg.title then
+      title = msg.title
+    end
+    table.insert(status, (msg.percentage or 0) .. "%% " .. title)
+  end
+  local spinners = { '🌑 ', '🌒 ', '🌓 ', '🌔 ', '🌕 ', '🌖 ', '🌗 ', '🌘 ' }
+  local ms = vim.loop.hrtime() / 1000000
+  local frame = math.floor(ms / 120) % #spinners
+  return table.concat(status, "  ") .. " " .. spinners[frame + 1]
+end
+
 require('lualine').setup {
   options = {
-      theme = 'tokyonight',
+    theme = 'tokyonight',
     component_separators = '|',
     section_separators = { left = '', right = '' },
   },
@@ -23,33 +64,10 @@ require('lualine').setup {
     lualine_a = {
       { 'mode', separator = { left = '' }, right_padding = 2 },
     },
-    lualine_b = { 'branch' },
+    lualine_b = { 'branch', "diff", "diagnostics" },
     lualine_c = {
-      {
-    	'lsp_progress',
-    	-- With spinner
-    	-- display_components = { 'lsp_client_name', 'spinner', { 'title', 'percentage', 'message' }},
-    	colors = {
-    	  percentage  = colors.cyan,
-    	  title  = colors.cyan,
-    	  message  = colors.cyan,
-    	  spinner = colors.cyan,
-    	  lsp_client_name = colors.magenta,
-    	  use = true,
-    	},
-    	separators = {
-    		component = ' ',
-    		progress = ' | ',
-    		percentage = { pre = '', post = '%% ' },
-    		title = { pre = '', post = ': ' },
-    		lsp_client_name = { pre = '[', post = ']' },
-    		spinner = { pre = '', post = '' },
-    		message = { pre = '(', post = ')', commenced = 'In Progress', completed = 'Completed' },
-    	},
-    	display_components = { 'lsp_client_name', 'spinner', { 'title', 'percentage', 'message' } },
-    	timer = { progress_enddelay = 500, spinner = 1000, lsp_client_name_enddelay = 1000 },
-    	spinner_symbols = { '🌑 ', '🌒 ', '🌓 ', '🌔 ', '🌕 ', '🌖 ', '🌗 ', '🌘 ' },
-    }
+      { lsp_client, icon = " ", color = { fg = colors.violet, gui = "bold" } },
+      { lsp_progress },
     },
     lualine_x = { 'filename', 'encoding', 'fileformat', 'filetype' },
     lualine_y = { 'progress' },

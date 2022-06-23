@@ -86,13 +86,14 @@ vim.cmd "autocmd BufWritePost plugins.lua source <afile> | PackerCompile"
       "neovim/nvim-lspconfig",
       opt = true,
       event = "BufReadPre",
-      wants = { "nvim-lsp-installer", "lsp_signature.nvim", "coq_nvim" },
+      wants = { "nvim-lsp-installer", "lsp_signature.nvim", "coq_nvim", "lua-dev.nvim" },
       config = function()
         require("user.plugins.lsp").setup()
       end,
       requires = {
         "williamboman/nvim-lsp-installer",
         "ray-x/lsp_signature.nvim",
+        "folke/lua-dev.nvim",
       },
     }
     use {

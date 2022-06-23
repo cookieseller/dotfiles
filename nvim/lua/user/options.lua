@@ -21,4 +21,3 @@ vim.cmd[[
   set wildmode=longest:full,full
 ]]
 
-
