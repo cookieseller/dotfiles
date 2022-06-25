@@ -14,7 +14,7 @@ function M.setup(servers, options)
         if server.name == "sumneko_lua" then
           opts = require("lua-dev").setup { lspconfig = opts }
         end
-        local coq = require "coq"
+        local coq = require("coq")
         server:setup(coq.lsp_ensure_capabilities(opts))
       end)
 

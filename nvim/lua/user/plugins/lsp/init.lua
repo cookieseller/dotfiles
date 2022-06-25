@@ -53,6 +53,10 @@ local function on_attach(client, bufnr)
 
   -- Configure key mappings
   require("user.plugins.lsp.keymaps").setup(client, bufnr)
+
+  require("user.plugins.lsp.highlighting").setup(client)
+
+  require("user.plugins.lsp.null-ls.formatters").setup(client, bufnr)
 end
 
 local opts = {
@@ -65,6 +69,8 @@ local opts = {
 require("user.plugins.lsp.handlers").setup()
 
 function M.setup()
+  require("user.plugins.lsp.null-ls").setup(opts)
+
   require("user.plugins.lsp.installer").setup(servers, opts)
 end
 

@@ -38,6 +38,17 @@ function M.setup()
       p = { "<cmd>lua require'telescope'.extensions.project.project{}<cr>", "Project List" },
       g = { "<cmd>Telescope repo list<cr>", "Git Repository Search" },
     },
+    l = {
+      name = "Code",
+      R = { "<cmd>Trouble lsp_references<cr>", "Trouble References" },
+      a = { "<cmd>Telescope lsp_code_actions<CR>", "Code Action" },
+      d = { "<cmd>Telescope diagnostics<CR>", "Diagnostics" },
+      f = { "<cmd>Lspsaga lsp_finder<CR>", "Finder" },
+      i = { "<cmd>LspInfo<CR>", "Lsp Info" },
+      n = { "<cmd>Lspsaga rename<CR>", "Rename" },
+      r = { "<cmd>Telescope lsp_references<CR>", "Diagnostics" },
+      t = { "<cmd>TroubleToggle<CR>", "Trouble" },
+    },
   }
 
   whichkey.setup(conf)
