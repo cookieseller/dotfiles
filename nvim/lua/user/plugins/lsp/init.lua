@@ -7,7 +7,7 @@ local servers = {
   pyright = {},
   rust_analyzer = {},
   sumneko_lua = {
-  settings = {
+    settings = {
       Lua = {
         runtime = {
           -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
@@ -29,12 +29,13 @@ local servers = {
       },
     },
   },
+  jdtls = {},
   tsserver = {},
   vimls = {},
   phpactor = {},
 }
 
-local lsp_signature = require "lsp_signature"
+local lsp_signature = require("lsp_signature")
 lsp_signature.setup {
   bind = true,
   handler_opts = {

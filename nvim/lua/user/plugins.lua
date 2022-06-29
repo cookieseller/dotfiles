@@ -84,7 +84,7 @@ packer.startup(function(use)
   }
   use {
     "neovim/nvim-lspconfig",
-    opt = true,
+    -- opt = true,
     event = "BufReadPre",
     wants = { "nvim-lsp-installer", "lsp_signature.nvim", "coq_nvim", "lua-dev.nvim", "vim-illuminate", "null-ls.nvim" },
     config = function()
@@ -98,6 +98,7 @@ packer.startup(function(use)
       "jose-elias-alvarez/null-ls.nvim",
     },
   }
+  use { "mfussenegger/nvim-jdtls", ft = { "java" } }
   use {
     "folke/trouble.nvim",
     event = "BufReadPre",

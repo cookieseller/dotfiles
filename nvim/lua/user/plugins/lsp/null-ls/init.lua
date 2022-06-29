@@ -10,14 +10,6 @@ local with_diagnostics_code = function(builtin)
   }
 end
 
-local with_root_file = function(builtin, file)
-  return builtin.with {
-    condition = function(utils)
-      return utils.root_has_file(file)
-    end,
-  }
-end
-
 local sources = {
   -- formatting
   b.formatting.prettierd,
@@ -26,7 +18,7 @@ local sources = {
   b.formatting.black.with { extra_args = { "--fast" } },
   b.formatting.isort,
   b.formatting.google_java_format,
-  with_root_file(b.formatting.stylua, "stylua.toml"),
+  b.formatting.stylua,
 
   -- diagnostics
   b.diagnostics.write_good,
@@ -35,7 +27,7 @@ local sources = {
   b.diagnostics.flake8,
   b.diagnostics.tsc,
   b.diagnostics.semgrep.with { extra_args = { "--config=auto" } },
-  with_root_file(b.diagnostics.selene, "selene.toml"),
+  b.diagnostics.selene,
   with_diagnostics_code(b.diagnostics.shellcheck),
 
   -- code actions
